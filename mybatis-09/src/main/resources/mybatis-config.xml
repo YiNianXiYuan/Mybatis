@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!--在xml中，所有的标签都可以规定其顺序-->
+<!--核心配置文件-->
+<configuration>
+    <!--引入外部配置文件-->
+    <!--    可以在其中增加一个属性，如果两个文件有同一字段，优先使用外部配置文件-->
+    <properties resource="db.properties">
+        <property name="pwd" value="root"/>
+    </properties>
+
+    <settings>
+        <!--配置日志，标准的日志工厂实现-->
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+        <!--是否开启自动驼峰命名规则（camel case）映射        -->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <!--        <setting name="logImpl" value="LOG4J"/>-->
+    </settings>
+    <!--    设置别名  可以给实体类写别名-->
+    <typeAliases>
+        <!--        <typeAlias type="com.ibatis.pojo.User" alias="User"></typeAlias>-->
+        <!--        扫描这个实体类的包，它的默认别名就是这个类的类名,首字母大小写都行，建议用大写,如果有注解默认用注解的值-->
+        <package name="com.ibatis.pojo"/>
+    </typeAliases>
+    <environments default="test">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url"
+                          value="jdbc:mysql://localhost:3306/mybatis?useSSL=true&amp;useUnicode=true&amp;characterEncoding=UTF8&amp;serverTimezone=Asia/Shanghai"/>
+                <property name="username" value="root"/>
+                <property name="password" value="root"/>
+            </dataSource>
+        </environment>
+        <environment id="test">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${pwd}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <!--每一个mapper.xml都需要在mybatis的核心配置文件注册-->
+    <mappers>
+        <!--    //绑定接口-->
+        <mapper class="com.ibatis.dao.UserMapper"/>
+        <!--        <mapper resource="com/ibatis/dao/StudentMapper.xml"/>-->
+        <!--        <mapper resource="com/ibatis/dao/TeacherMapper.xml"/>-->
+        <!--        <package name="com.ibatis.dao"/>-->
+        <!--        <mapper resource="com/ibatis/dao/UserMapper.xml"/>-->
+    </mappers>
+
+
+</configuration>

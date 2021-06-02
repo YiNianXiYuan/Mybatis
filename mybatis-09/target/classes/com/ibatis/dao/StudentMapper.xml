@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--在xml中，所有的标签都可以规定其顺序-->
+<!--核心配置文件-->
+<mapper namespace="com.ibatis.dao.StudentMapper">
+    <!--    按照结果嵌套处理-->
+    <resultMap id="StudentMap2" type="Student">
+        <result column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="tid" property="tid"/>
+        <!--    复杂的属性，我们需要单独处理 对象association   集合collection-->
+        <association property="teacher" column="tid" javaType="Teacher">
+            <result property="name" column="tname"/>
+            <result property="id" column="tid"/>
+        </association>
+    </resultMap>
+    <select id="getStudent2" resultMap="StudentMap2">
+        select s.id, s.name, s.tid, t.id, t.name tname
+        from student s,
+             teacher t
+        where s.tid = t.id
+    </select>
+
+    <!--    思路  1.查询所有的学生信息
+    2.根据查询出来的学生的tid，找到对应的老师 子查询-->
+
+    <select id="getStudent" resultMap="StudentMap">
+        --         select * from student s,teacher t where s.tid = t.id;
+        select *
+        from student
+    </select>
+    <resultMap id="StudentMap" type="Student">
+        <result column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="tid" property="tid"/>
+        <!--    复杂的属性，我们需要单独处理 对象association   集合collection-->
+        <association property="teacher" column="tid" javaType="Teacher" select="getTeacher"/>
+    </resultMap>
+
+
+    <select id="getTeacher" resultType="Teacher">
+        select *
+        from teacher
+        where id = #{tid}
+    </select>
+</mapper>
