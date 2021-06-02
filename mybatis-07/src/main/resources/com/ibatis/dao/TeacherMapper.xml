@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--在xml中，所有的标签都可以规定其顺序-->
+<!--核心配置文件-->
+<mapper namespace="com.ibatis.dao.TeacherMapper">
+    <resultMap id="getTeacherMap" type="Teacher">
+        <result property="id" column="tid"></result>
+        <result property="name" column="tname"></result>
+        <!--        复杂的属性，我们需要单独处理 association 对象 collection集合
+        javaType=""指定的实体类中属性的类型
+        集合中的泛型使用ofType获取，泛型的约束类型,用来指定映射到List或者集合中的pojo类型
+        property:表示的是实体类中对应的对象的名称
+        column：表示数据库表中的字段名称，也就是sql语句搜索到的字段名称，as后面那些
+        -->
+        <collection property="students" ofType="Student">
+            <result property="id" column="sid"/>
+            <result property="name" column="sname"/>
+            <result property="tid" column="tid"/>
+            <association property="teacher" column="tid" javaType="Teacher">
+                <result property="id" column="tid"/>
+                <result property="name" column="tname"/>
+            </association>
+        </collection>
+    </resultMap>
+    <!--    按结果嵌套查询-->
+    <select id="getTeacher" resultMap="getTeacherMap">
+        select s.id sid, s.name sname, t.name tname, t.id tid
+        from student s,
+             teacher t
+        where s.tid = t.id
+          and t.id = #{tid}
+    </select>
+
+    <!--    ===============================根据子查询查询 teacher查询出来id为0 需要改，建议使用上面的方法    -->
+    <select id="getTeacher2" resultMap="getTeacherMap2">
+        select *
+        from mybatis.teacher
+        where id = #{tid}
+    </select>
+    <resultMap id="getTeacherMap2" type="Teacher">
+        <result property="id" column="id"/>
+        <collection property="students" column="id" javaType="ArrayList" ofType="Student" select="getStudentByTeacherId"/>
+    </resultMap>
+    <select id="getStudentByTeacherId" resultType="Student">
+        select *
+        from mybatis.student
+        where tid = #{tid}
+    </select>
+</mapper>

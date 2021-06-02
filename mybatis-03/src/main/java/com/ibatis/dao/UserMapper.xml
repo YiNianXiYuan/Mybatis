@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--接口实现类由原来的UserDaoImpl变为UserMapper.xml-->
+<!--namespace=绑定一个对应的Dao/Mapper接口-->
+<mapper namespace="com.ibatis.dao.UserMapper">
+    <resultMap id="UserMap" type="User">
+<!--        column数据库中的字段，property实体类中的属性-->
+        <result column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="pwd" property="password"/>
+    </resultMap>
+    <!--            select查询语句-->
+    <select id="getUserList" resultType="User">
+        select *
+        from mybatis.user
+    </select>
+
+    <select id="getUserLike" resultType="User">
+        select *
+        from mybatis.user
+        where name like "%"#{value}"%"
+    </select>
+
+    <select id="getUserById" resultMap="UserMap">
+        select id,name,pwd from mybatis.user where id = #{id}
+    </select>
+<!--        <select id="getUserById" resultType="com.ibatis.pojo.User" parameterType="int">-->
+<!--            select id,name,pwd as password from mybatis.user where id = #{id}-->
+<!--        </select>-->
+
+<!--    <select id="getUserById" resultType="map" parameterType="int">-->
+<!--                select *-->
+<!--        from mybatis.user-->
+<!--        where id = #{id}-->
+
+<!--    </select>-->
+    <!--    <insert id="addUser" parameterType="com.ibatis.pojo.User">-->
+    <!--        insert into mybatis.user (id,name,pwd) values(#{id},#{name},#{pwd});-->
+    <!--    </insert>-->
+    <!--    对象中的属性，可以直接取出来
+    传递map的key值-->
+    <insert id="addUser" parameterType="map">
+        insert into mybatis.user (id, name, pwd)
+        values (#{userId}, #{userName}, #{userPwd});
+    </insert>
+    <update id="updateUser" parameterType="User">
+        update mybatis.user
+        set name=#{name},
+            pwd=#{pwd}
+        where id = #{id};
+    </update>
+    <delete id="deleteUser" parameterType="int">
+        delete
+        from mybatis.user
+        where id = #{id};
+    </delete>
+</mapper>
+
+
+

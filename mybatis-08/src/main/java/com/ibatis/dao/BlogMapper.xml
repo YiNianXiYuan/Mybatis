@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ibatis.dao.BlogMapper">
+    <insert id="addBlog" parameterType="blog">
+        insert into mybatis.blog (id, title, author, create_time, views)
+        values (#{id}, #{title}, #{author}, #{createTime}, #{views});
+    </insert>
+    <!--sql片段-->
+    <sql id="if-title-author">
+        <if test="title!=null">
+            and title = #{title}
+        </if>
+        <if test="author!=null">
+            and author = #{author}
+        </if>
+    </sql>
+    <select id="queryBlogIF" parameterType="map" resultType="blog">
+        <!--select * from mybatis.blog where 1=1-->
+        <!--<if test="title!=null">-->
+        <!--    and title = #{title}-->
+        <!--</if>-->
+        <!--<if test="author!=null">-->
+        <!--    and author = #{author}-->
+        <!--</if>-->
+        -- 用where不安全，要用where标签
+        select * from mybatis.blog
+        <where>
+            <!--<if test="title!=null">-->
+            <!--    and title = #{title}-->
+            <!--</if>-->
+            <!--<if test="author!=null">-->
+            <!--    and author = #{author}-->
+            <!--</if>-->
+            <include refid="if-title-author"></include>
+        </where>
+
+    </select>
+    <select id="queryBlogChoose" resultType="blog" parameterType="map">
+        select * from mybatis.blog
+        <where>
+            -- 类似于switch case语句
+            <choose>
+                <when test="title != null">title = #{title}</when>
+                <when test="author != null">and author = #{author}</when>
+                <otherwise>and views = #{views}</otherwise>
+            </choose>
+        </where>
+    </select>
+    <update id="updateBlog" parameterType="map">
+        update mybatis.blog
+        <!-- set id = #{id},title = #{title}-->
+        <set>
+            <if test="title != null">
+                title = #{title},
+            </if>
+            <if test="author != null">
+                author = #{author}
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+    <select id="queryBlogForeach" parameterType="map" resultType="blog">
+        select *
+        from mybatis.blog
+        <where>
+            <foreach collection="ids" item="id" open="and (" close=")" separator="or">
+                id = #{id}
+            </foreach>
+        </where>
+    </select>
+</mapper>
+
