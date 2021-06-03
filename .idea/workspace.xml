@@ -5,36 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1035e6d4-c8b6-4807-9dac-f4535da2d218" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_istack_istack_commons_runtime_3_0_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_xml_fastinfoset_FastInfoset_1_2_15.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_activation_javax_activation_api_1_2_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_xml_bind_jaxb_api_2_3_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_ehcache_ehcache_3_8_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_jaxb_jaxb_runtime_2_3_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_jaxb_txw2_2_3_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jvnet_staxex_stax_ex_1_8.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_25.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Mybatis.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mybatis-01/mybatis-01.iml" beforeDir="false" afterPath="$PROJECT_DIR$/mybatis-01/mybatis-01.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mybatis-03/mybatis-03.iml" beforeDir="false" afterPath="$PROJECT_DIR$/mybatis-03/mybatis-03.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mybatis-04/mybatis-04.iml" beforeDir="false" afterPath="$PROJECT_DIR$/mybatis-04/mybatis-04.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mybatis-06/mybatis-06.iml" beforeDir="false" afterPath="$PROJECT_DIR$/mybatis-06/mybatis-06.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mybatis-07/mybatis-07.iml" beforeDir="false" afterPath="$PROJECT_DIR$/mybatis-07/mybatis-07.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mybatis-08/mybatis-08.iml" beforeDir="false" afterPath="$PROJECT_DIR$/mybatis-08/mybatis-08.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mybatis-09/mybatis-09.iml" beforeDir="false" afterPath="$PROJECT_DIR$/mybatis-09/mybatis-09.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mybatis-09/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mybatis-09/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mybatis-09/src/main/java/com/ibatis/dao/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/mybatis-09/src/main/java/com/ibatis/dao/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mybatis-09/src/main/java/com/ibatis/dao/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mybatis-09/src/main/java/com/ibatis/dao/UserMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mybatis-09/src/main/java/com/ibatis/pojo/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/mybatis-09/src/main/java/com/ibatis/pojo/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mybatis-09/src/main/resources/mybatis-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mybatis-09/src/main/resources/mybatis-config.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mybatis-09/src/test/java/MyTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/mybatis-09/src/test/java/MyTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mybatis-09/target/classes/com/ibatis/dao/UserMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/mybatis-09/target/classes/com/ibatis/dao/UserMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mybatis-09/target/classes/com/ibatis/dao/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mybatis-09/target/classes/com/ibatis/dao/UserMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mybatis-09/target/classes/com/ibatis/pojo/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/mybatis-09/target/classes/com/ibatis/pojo/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mybatis-09/target/classes/mybatis-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mybatis-09/target/classes/mybatis-config.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mybatis-09/target/test-classes/MyTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/mybatis-09/target/test-classes/MyTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -322,7 +294,7 @@
       <workItem from="1622700758215" duration="2417000" />
       <workItem from="1622704063946" duration="310000" />
       <workItem from="1622706303822" duration="1860000" />
-      <workItem from="1622708233724" duration="2611000" />
+      <workItem from="1622708233724" duration="3225000" />
     </task>
     <servers />
   </component>
